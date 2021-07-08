@@ -12,6 +12,8 @@ import yfinance as yf
 from alpha_vantage.timeseries import TimeSeries
 from prompt_toolkit.completion import NestedCompleter
 
+from rich import print
+
 from gamestonk_terminal.helper_funcs import b_is_stock_market_open, get_flair
 from gamestonk_terminal.main_helper import (
     clear,
@@ -131,6 +133,7 @@ class TerminalController:
     def print_help(self):
         """Print help"""
         help_text = """
+
 What do you want to do?
     cls         clear screen
     ?/help      show this menu again
@@ -140,17 +143,17 @@ What do you want to do?
     q(uit)      to abandon the program
 
 Contexts:
->   mill        papermill menu, \t\t menu to generate notebook reports
->   econ        economic data, \t\t\t e.g.: events, FRED data, GDP, VIXCLS
->   pa          portfolio analysis, \t\t analyses your custom portfolio
->   bro         brokers holdings, \t\t supports: robinhood, alpaca, ally
->   crypto      cryptocurrencies, \t\t from: coingecko, coinmarketcap, binance
->   po          portfolio optimization, \t optimal portfolio weights from pyportfolioopt
->   gov         government menu, \t\t house trading, contracts, corporate lobbying
->   etf         etf menu, \t\t\t from: StockAnalysis.com
->   fx          forex menu, \t\t\t forex support through Oanda
->   rc          resource collection, \t\t e.g. hf letters, arXiv, EDGAR, FINRA
->   op          options info,            \t e.g.: volume, open interest, chains, volatility
+>   [color(048)]mill        [/color(048)][color(044)]papermill menu,            [/color(044)][color(039)]menu to generate notebook reports[/color(039)]
+>   [color(029)]econ        [/color(029)][color(030)]economic data,             [/color(030)][color(025)]e.g.: events, FRED data, GDP, VIXCLS[/color(025)]
+>   [color(048)]pa          [/color(048)][color(044)]portfolio analysis,        [/color(044)][color(039)]analyses your custom portfolio[/color(039)]
+>   [color(029)]bro         [/color(029)][color(030)]brokers holdings,          [/color(030)][color(025)]supports: robinhood, alpaca, ally[/color(025)]
+>   [color(048)]crypto      [/color(048)][color(044)]cryptocurrencies,          [/color(044)][color(039)]from: coingecko, coinmarketcap, binance[/color(039)]
+>   [color(029)]po          [/color(029)][color(030)]portfolio optimization,    [/color(030)][color(025)]optimal portfolio weights from pyportfolioopt[/color(025)]
+>   [color(048)]gov         [/color(048)][color(044)]government menu,           [/color(044)][color(039)]house trading, contracts, corporate lobbying[/color(039)]
+>   [color(029)]etf         [/color(029)][color(030)]etf menu,                  [/color(030)][color(025)]from: StockAnalysis.com[/color(025)]
+>   [color(048)]fx          [/color(048)][color(044)]forex menu,                [/color(044)][color(039)]forex support through Oanda[/color(039)]
+>   [color(029)]rc          [/color(029)][color(030)]resource collection,       [/color(030)][color(025)]e.g. hf letters, arXiv, EDGAR, FINRA[/color(025)]
+>   [color(048)]op          [/color(048)][color(044)]options info,              [/color(044)][color(039)]e.g.: volume, open interest, chains, volatility[/color(039)]
             """
 
         s_intraday = (f"Intraday {self.interval}", "Daily")[self.interval == "1440min"]
